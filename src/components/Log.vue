@@ -92,7 +92,7 @@ export default {
       details.toggleClass('hidden')
     }
   },
-  ready: function () {
+  ready () {
     console.log('Page ready.')
     this.fetchData()
   }

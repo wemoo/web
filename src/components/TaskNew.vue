@@ -24,9 +24,11 @@
                 <textarea id="script" v-model="taskScript"
                   class="pure-input-1" placeholder="Type your scipt here."></textarea>
             </div>
-            <button class="pure-button pure-button-primary">Create</button>
+            
           </fieldset>
         </form>
+
+        <button @click="create()" class="pure-button pure-button-primary">Create</button>
       </div>
     </div>
 
@@ -63,15 +65,25 @@ export default {
   },
 
   methods: {
+    create () {
+      console.log('create task')
+      server.createTask({
+        'title': this.taskTitle,
+        'desc': this.taskDesc,
+        'script': this.taskScript})
+        .done((data) => {
+          console.log(data.content)
+          this.$router.go('/task/index')
+        })
+    }
   },
 
-  ready: () => {
-    console.log(server.fetchAllTasks())
+  ready () {
+    console.log('Load ready.')
   }
 }
 </script>
 
 
 <style>
-
 </style>

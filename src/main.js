@@ -58,7 +58,7 @@ router.beforeEach(() => {
 })
 
 router.redirect({
-  '*': '/task'
+  '*': '/'
 })
 
 router.start(App, '#app')
