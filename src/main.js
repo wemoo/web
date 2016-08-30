@@ -9,6 +9,7 @@ import {
 import App from './components/App.vue'
 import Home from './components/Home.vue'
 import Task from './components/Task.vue'
+import TaskIndex from './components/TaskIndex.vue'
 import TaskNew from './components/TaskNew.vue'
 import Log from './components/Log.vue'
 import Monitor from './components/Monitor.vue'
@@ -33,6 +34,9 @@ router.map({
   '/task': {
     component: Task,
     subRoutes: {
+      '/index': {
+        component: TaskIndex
+      },
       '/new': {
         component: TaskNew
       }

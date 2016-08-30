@@ -1,11 +1,12 @@
 <template>
   <div class="task">
-    <div class="header">
-      <h1>Task list</h1>
-      <h2>All tasks are here.</h2>
-    </div>
 
-    <a v-link="{ path: '/task/new' }">New task here</a>
+  <router-view
+    class="view"
+    keep-alive
+    transition
+    transition-mode="out-in">
+  </router-view>
 
   </div>
 </template>
