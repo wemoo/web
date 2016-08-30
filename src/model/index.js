@@ -2,7 +2,7 @@ import $ from '../lib/zepto'
 import utils from '../lib/utils'
 
 // let apiBaseUrl = 'http://localhost:8081'
-let apiBaseUrl = 'https://analytics.picooc.net'
+let apiBaseUrl = 'http://localhost'
 let headers = {}
 
 export default {
