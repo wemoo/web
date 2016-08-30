@@ -24,7 +24,7 @@
               <tbody>
                 <template v-for="task in tasks">
                   <tr class="pure-table-odd">
-                    <td>1</td>
+                    <td>{{ $index + 1 }}</td>
                     <td>Honda</td>
                     <td>Accord</td>
                     <td>2009</td>
