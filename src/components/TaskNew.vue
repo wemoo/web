@@ -7,41 +7,31 @@
       </div>
 
       <div class="body">
-        <form class="pure-form pure-form-aligned">
+        <form class="pure-form pure-form-stacked">
           <fieldset>
             <div class="pure-control-group">
-                <label for="name">Username</label>
-                <input id="name" type="text" placeholder="Username">
+                <label for="name">Task Name</label>
+                <input id="name" v-model="taskName"
+                  type="text" class="pure-input-1" placeholder="Your task name">
             </div>
-
             <div class="pure-control-group">
-                <label for="password">Password</label>
-                <input id="password" type="password" placeholder="Password">
+                <label for="description">Description</label>
+                <input id="description" v-model="taskDesc"
+                  type="text" class="pure-input-1" placeholder="Maybe a short description">
             </div>
-
             <div class="pure-control-group">
-                <label for="email">Email Address</label>
-                <input id="email" type="email" placeholder="Email Address">
-            </div>
-
-            <div class="pure-control-group">
-                <label for="foo">Supercalifragilistic Label</label>
-                <input id="foo" type="text" placeholder="Enter something here...">
-            </div>
-
-            <div class="pure-controls">
-                <label for="cb" class="pure-checkbox">
-                    <input id="cb" type="checkbox"> I've read the terms and conditions
-                </label>
-
-                <button type="submit" class="pure-button pure-button-primary">Submit</button>
+                <label for="email">Script</label>
+                <textarea id="script" v-model="taskScript"
+                  class="pure-input-1" placeholder="Type your scipt here."></textarea>
             </div>
           </fieldset>
         </form>
-
-        <input type="text" placeholder="Task name">
       </div>
     </div>
+
+    <pre>
+      {{ task | json }}
+    </pre>
   </div>
 </template>
 
@@ -52,12 +42,28 @@ import server from '../model'
 export default {
   name: 'TaskNew',
   components: {},
+
   data () {
     return {
-      tasks: null
+      taskName: null,
+      taskDesc: null,
+      taskScript: null
     }
   },
-  computed: {},
+
+  computed: {
+    task () {
+      return {
+        'name': this.taskName,
+        'desc': this.taskDesc,
+        'script': this.taskScript
+      }
+    }
+  },
+
+  methods: {
+  },
+
   ready: () => {
     console.log(server.fetchAllTasks())
   }

@@ -63,9 +63,11 @@ import $ from '../lib/zepto'
 export default {
   name: 'Log',
   el: () => ('#log'),
-  data: {
-    logs: null,
-    isLoad: false
+  data () {
+    return {
+      logs: null,
+      isLoad: false
+    }
   },
   methods: {
     fetchData (mac) {
