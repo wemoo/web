@@ -10,9 +10,9 @@
         <form class="pure-form pure-form-stacked">
           <fieldset>
             <div class="pure-control-group">
-                <label for="name">Task Name</label>
-                <input id="name" v-model="taskName"
-                  type="text" class="pure-input-1" placeholder="Your task name">
+                <label>Title</label>
+                <input id="title" v-model="taskTitle"
+                  type="text" class="pure-input-1" placeholder="Your task title">
             </div>
             <div class="pure-control-group">
                 <label for="description">Description</label>
@@ -24,6 +24,7 @@
                 <textarea id="script" v-model="taskScript"
                   class="pure-input-1" placeholder="Type your scipt here."></textarea>
             </div>
+            <button class="pure-button pure-button-primary">Create</button>
           </fieldset>
         </form>
       </div>
@@ -45,7 +46,7 @@ export default {
 
   data () {
     return {
-      taskName: null,
+      taskTitle: null,
       taskDesc: null,
       taskScript: null
     }
@@ -54,7 +55,7 @@ export default {
   computed: {
     task () {
       return {
-        'name': this.taskName,
+        'title': this.taskTitle,
         'desc': this.taskDesc,
         'script': this.taskScript
       }
