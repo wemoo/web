@@ -9,7 +9,7 @@
         <a v-link="{ path: '/task/new' }">New task here</a>
       </div>
 
-      <div class="task-list table-responsive">
+      <div class="task-list">
         <div class="pure-g">
           <div class="pure-u-md-1-1">
             <table class="pure-table pure-table-bordered">
@@ -23,11 +23,11 @@
               </thead>
               <tbody>
                 <template v-for="task in tasks">
-                  <tr class="pure-table-odd">
+                  <tr class="{{ $index % 2 == 0  ? 'pure-table-even' : 'pure-table-odd' }}">
                     <td>{{ $index + 1 }}</td>
-                    <td>Honda</td>
-                    <td>Accord</td>
-                    <td>2009</td>
+                    <td><a @click="showTask(task)">{{ task.title }}</a></td>
+                    <td>{{ task.desc }}</td>
+                    <td>{{ task.finished == null || task.finished == false ? 'NOT' : 'done' }}</td>
                   </tr>
                 </template>
               </tbody>
@@ -52,6 +52,11 @@ export default {
     }
   },
   computed: {},
+  method: {
+    showTask (task) {
+      this.$router.go('/task/' + task.id)
+    }
+  },
   ready () {
     server.fetchAllTasks()
       .done((data) => {
