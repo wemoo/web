@@ -52,9 +52,10 @@ export default {
     }
   },
   computed: {},
-  method: {
+  methods: {
     showTask (task) {
-      this.$router.go('/task/' + task.id)
+      console.log(task)
+      // this.$router.go('/task/' + task.id)
     }
   },
   ready () {
