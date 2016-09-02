@@ -2,10 +2,10 @@
   <div class="task-show">
     <div class="task">
       <div class="header">
-        <h3>Task Show</h3>
-        <p>The task details.</p>
+        <div class="page-title">Task Show</div>
+        <div class="page-desc">The task details.</div>
       </div>
-      <div class="body">
+      <div class="task-body">
         <h4>Title</h4>
         <p>{{ task.title }}</p>
 
@@ -46,4 +46,11 @@ export default {
 
 
 <style>
+.page-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+.page-desc {
+  font-size: 15px;
+}
 </style>
