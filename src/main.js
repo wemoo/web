@@ -17,10 +17,9 @@ import Monitor from './components/Monitor.vue'
 import Alert from './components/Alert.vue'
 
 // require external css
+require('assets/css/pure-min.css')
 require('assets/css/baby-blue.css')
 require('assets/css/grids-responsive-min.css')
-require('assets/css/pure-min.css')
-require('assets/css/side-menu.css')
 
 // require external js
 require('assets/js/purecss.js')
