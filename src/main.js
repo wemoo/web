@@ -22,7 +22,6 @@ require('assets/css/baby-blue.css')
 require('assets/css/grids-responsive-min.css')
 
 // require external js
-require('assets/js/purecss.js')
 
 // install router
 Vue.use(Router)
