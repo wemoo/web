@@ -31,23 +31,6 @@ import $ from '../lib/zepto'
 export default {
   name: 'App',
   methods: {
-    toggleClass (element, className) {
-      var classes = element.className.split(/\s+/)
-      var length = classes.length
-      var i
-      for (i = 0; i < length; i++) {
-        if (classes[i] === className) {
-          classes.splice(i, 1)
-          break
-        }
-      }
-      // The className is not found
-      if (length === classes.length) {
-        classes.push(className)
-      }
-
-      element.className = classes.join(' ')
-    },
     menuClick () {
       var active = 'active'
 
@@ -55,11 +38,8 @@ export default {
       $('#menu').toggleClass(active)
       $('#menuLink').toggleClass(active)
     }
-
   },
-  ready () {
-
-  }
+  ready () {}
 }
 </script>
 
