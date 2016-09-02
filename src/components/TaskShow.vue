@@ -2,20 +2,20 @@
   <div class="task-show">
     <div class="task">
       <div class="header">
-        <h1>Task Show</h1>
-        <h2>The task details.</h2>
+        <h3>Task Show</h3>
+        <p>The task details.</p>
       </div>
       <div class="body">
-        <h3>Title</h3>
+        <h4>Title</h4>
         <p>{{ task.title }}</p>
 
-        <h3>Description</h3>
+        <h4>Description</h4>
         <p>{{ task.desc }}</p>
 
-        <h3>Script</h3>
+        <h4>Script</h4>
         <pre>{{ task.script }}</pre>
 
-        <h3>Result</h3>
+        <h4>Result</h4>
         <p>{{ task.result || '-' }}</p>
       </div>
   </div>
