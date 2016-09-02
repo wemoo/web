@@ -2,13 +2,12 @@
   <div class="task-index">
     <div class="task">
       <div class="header">
-          <h1>Task Index</h1>
-          <h2>All tasks list here.</h2>
+        <div class="page-title">Task Index</div>
+        <div class="page-desc">All tasks list here.</div>
       </div>
       <div class="jump-link">
         <a v-link="{ path: '/task/new' }">New task here</a>
       </div>
-
       <div class="task-list">
         <div class="pure-g">
           <div class="pure-u-md-1-1">

@@ -2,10 +2,9 @@
   <div class="task-new">
     <div class="task">
       <div class="header">
-        <h1>New task</h1>
-        <h2>Create a new task.</h2>
+        <div class="page-title">New task</div>
+        <div class="page-desc">Create a new task.</div>
       </div>
-
       <div class="body">
         <form class="pure-form pure-form-stacked">
           <fieldset>
