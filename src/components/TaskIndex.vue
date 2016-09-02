@@ -53,15 +53,13 @@ export default {
   computed: {},
   methods: {
     showTask (task) {
-      console.log(task)
       this.$router.go('/task/' + task.id)
     }
   },
   ready () {
     server.fetchAllTasks()
       .done((data) => {
-        console.log('Finished fetch index')
-        console.log(data)
+        console.log('Finished fetching task index')
         this.$set('tasks', data.content.tasks)
       })
   }
