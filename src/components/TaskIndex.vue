@@ -55,7 +55,7 @@ export default {
   methods: {
     showTask (task) {
       console.log(task)
-      // this.$router.go('/task/' + task.id)
+      this.$router.go('/task/' + task.id)
     }
   },
   ready () {

@@ -2,8 +2,8 @@
   <div class="task-show">
     <div class="task">
       <div class="header">
-        <h1>Task Details</h1>
-        <h2>Show details.</h2>
+        <h1>Task Show</h1>
+        <h2>The task details.</h2>
       </div>
   </div>
 </template>
@@ -11,8 +11,17 @@
 <script>
 export default {
   name: 'TaskShow',
+  data () {
+    return {
+      taskId: this.$route.params.id,
+      task: null
+    }
+  },
   components: {},
-  computed: {}
+  computed: {},
+  ready () {
+    console.log(this.taskId)
+  }
 }
 </script>
 
