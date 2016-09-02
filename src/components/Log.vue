@@ -63,9 +63,11 @@ import $ from '../lib/zepto'
 export default {
   name: 'Log',
   el: () => ('#log'),
-  data: {
-    logs: null,
-    isLoad: false
+  data () {
+    return {
+      logs: null,
+      isLoad: false
+    }
   },
   methods: {
     fetchData (mac) {
@@ -90,7 +92,7 @@ export default {
       details.toggleClass('hidden')
     }
   },
-  ready: function () {
+  ready () {
     console.log('Page ready.')
     this.fetchData()
   }

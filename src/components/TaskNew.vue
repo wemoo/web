@@ -2,46 +2,38 @@
   <div class="task-new">
     <div class="task">
       <div class="header">
-        <h1>New task</h1>
-        <h2>Create a new task.</h2>
+        <div class="page-title">New task</div>
+        <div class="page-desc">Create a new task.</div>
       </div>
-
       <div class="body">
-        <form class="pure-form pure-form-aligned">
+        <form class="pure-form pure-form-stacked">
           <fieldset>
             <div class="pure-control-group">
-                <label for="name">Username</label>
-                <input id="name" type="text" placeholder="Username">
+                <label>Title</label>
+                <input id="title" v-model="taskTitle"
+                  type="text" class="pure-input-1" placeholder="Your task title">
             </div>
-
             <div class="pure-control-group">
-                <label for="password">Password</label>
-                <input id="password" type="password" placeholder="Password">
+                <label for="description">Description</label>
+                <input id="description" v-model="taskDesc"
+                  type="text" class="pure-input-1" placeholder="Maybe a short description">
             </div>
-
             <div class="pure-control-group">
-                <label for="email">Email Address</label>
-                <input id="email" type="email" placeholder="Email Address">
+                <label for="email">Script</label>
+                <textarea id="script" v-model="taskScript"
+                  class="pure-input-1" placeholder="Type your scipt here."></textarea>
             </div>
-
-            <div class="pure-control-group">
-                <label for="foo">Supercalifragilistic Label</label>
-                <input id="foo" type="text" placeholder="Enter something here...">
-            </div>
-
-            <div class="pure-controls">
-                <label for="cb" class="pure-checkbox">
-                    <input id="cb" type="checkbox"> I've read the terms and conditions
-                </label>
-
-                <button type="submit" class="pure-button pure-button-primary">Submit</button>
-            </div>
+            
           </fieldset>
         </form>
 
-        <input type="text" placeholder="Task name">
+        <button @click="create()" class="pure-button pure-button-primary">Create</button>
       </div>
     </div>
+
+    <pre>
+      {{ task | json }}
+    </pre>
   </div>
 </template>
 
@@ -52,19 +44,45 @@ import server from '../model'
 export default {
   name: 'TaskNew',
   components: {},
+
   data () {
     return {
-      tasks: null
+      taskTitle: null,
+      taskDesc: null,
+      taskScript: null
     }
   },
-  computed: {},
-  ready: () => {
-    console.log(server.fetchAllTasks())
+
+  computed: {
+    task () {
+      return {
+        'title': this.taskTitle,
+        'desc': this.taskDesc,
+        'script': this.taskScript
+      }
+    }
+  },
+
+  methods: {
+    create () {
+      console.log('create task')
+      server.createTask({
+        'title': this.taskTitle,
+        'desc': this.taskDesc,
+        'script': this.taskScript})
+        .done((data) => {
+          console.log(data.content)
+          this.$router.go('/task/index')
+        })
+    }
+  },
+
+  ready () {
+    console.log('Load ready.')
   }
 }
 </script>
 
 
 <style>
-
 </style>

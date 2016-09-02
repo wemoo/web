@@ -11,9 +11,19 @@ import Home from './components/Home.vue'
 import Task from './components/Task.vue'
 import TaskIndex from './components/TaskIndex.vue'
 import TaskNew from './components/TaskNew.vue'
+import TaskShow from './components/TaskShow.vue'
 import Log from './components/Log.vue'
 import Monitor from './components/Monitor.vue'
 import Alert from './components/Alert.vue'
+
+// require external css
+require('assets/css/baby-blue.css')
+require('assets/css/grids-responsive-min.css')
+require('assets/css/pure-min.css')
+require('assets/css/side-menu.css')
+
+// require external js
+require('assets/js/purecss.js')
 
 // install router
 Vue.use(Router)
@@ -39,6 +49,9 @@ router.map({
       },
       '/new': {
         component: TaskNew
+      },
+      '/:id': {
+        component: TaskShow
       }
     }
   },
@@ -58,7 +71,7 @@ router.beforeEach(() => {
 })
 
 router.redirect({
-  '*': '/task'
+  '*': '/'
 })
 
 router.start(App, '#app')

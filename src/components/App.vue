@@ -15,4 +15,11 @@
 </script>
 
 <style>
+.page-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+.page-desc {
+  font-size: 15px;
+}
 </style>

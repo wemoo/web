@@ -1,9 +1,9 @@
 import $ from '../lib/zepto'
 import utils from '../lib/utils'
 
-// let apiBaseUrl = 'http://localhost:8081'
-let apiBaseUrl = 'https://analytics.picooc.net'
+let apiBaseUrl = 'http://localhost:8081'
 let headers = {}
+let contentType = 'application/json'
 
 export default {
   /**
@@ -15,7 +15,7 @@ export default {
       headers: headers,
       cache: false,
       url: apiBaseUrl + '/api/tasks',
-      dataType: 'json'
+      contentType: contentType
     })
   },
 
@@ -28,6 +28,18 @@ export default {
       headers: headers,
       cache: false,
       url: apiBaseUrl + '/api/tasks/' + uuid,
+      contentType: contentType
+    })
+  },
+
+  createTask: (data) => {
+    return $.ajax({
+      type: 'POST',
+      data: JSON.stringify(data),
+      headers: headers,
+      cache: false,
+      url: apiBaseUrl + '/api/tasks',
+      contentType: contentType,
       dataType: 'json'
     })
   },
@@ -40,8 +52,8 @@ export default {
       type: 'GET',
       headers: headers,
       cache: false,
-      // url: 'https://analytics.picooc.net/analytics/logs?mac=D0:49:00:00:C5:54'
-      url: apiBaseUrl + '/analytics/logs?mac=' + mac
+      url: apiBaseUrl + '/analytics/logs?mac=' + mac,
+      contentType: contentType
     })
   }
 }
