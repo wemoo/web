@@ -7,7 +7,7 @@
       </a>
 
       <div id="menu">
-        <div class="pure-menu">
+        <div class="pure-menu"  @click="menuClick">
           <a class="pure-menu-heading" href="#">Wemoo</a>
           <ul class="pure-menu-list">
             <li class="pure-menu-item"><a href="/#!/task/index" class="pure-menu-link">Task</a></li>
