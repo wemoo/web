@@ -32,14 +32,18 @@ export default {
       task: {}
     }
   },
-  components: {},
-  computed: {},
-  ready () {
-    console.log(this.taskId)
-    server.fetchTaskById(this.taskId)
-      .done((data) => {
-        this.$set('task', data.content.task)
-      })
+  route: {
+    activate () {
+      this.task = {}
+      console.log('route changed')
+      server.fetchTaskById(this.$route.params.id)
+        .done((data) => {
+          this.task = data.content.task
+        })
+    }
+  },
+  created () {
+    console.log('created')
   }
 }
 </script>
