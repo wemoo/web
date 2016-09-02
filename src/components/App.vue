@@ -26,7 +26,7 @@
 </template>
 
 <script>
-// import $ from '../lib/zepto'
+import $ from '../lib/zepto'
 
 export default {
   name: 'App',
@@ -49,16 +49,11 @@ export default {
       element.className = classes.join(' ')
     },
     menuClick () {
-      var layout = document.getElementById('layout')
-      var menu = document.getElementById('menu')
-      var menuLink = document.getElementById('menuLink')
-
       var active = 'active'
 
-      // e.preventDefault()
-      this.toggleClass(layout, active)
-      this.toggleClass(menu, active)
-      this.toggleClass(menuLink, active)
+      $('#layout').toggleClass(active)
+      $('#menu').toggleClass(active)
+      $('#menuLink').toggleClass(active)
     }
 
   },
