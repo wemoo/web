@@ -17,7 +17,7 @@
                   <th>#</th>
                   <th>Title</th>
                   <th>Desc</th>
-                  <th>Finished?</th>
+                  <th>Done?</th>
                 </tr>
               </thead>
               <tbody>
