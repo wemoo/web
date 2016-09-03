@@ -2,6 +2,7 @@ import $ from '../lib/zepto'
 import utils from '../lib/utils'
 
 let apiBaseUrl = 'http://localhost:8081'
+apiBaseUrl = 'http://192.168.199.197:8081'
 let headers = {}
 let contentType = 'application/json'
 
@@ -36,6 +37,18 @@ export default {
       headers: headers,
       cache: false,
       url: apiBaseUrl + '/api/tasks',
+      contentType: contentType,
+      dataType: 'json'
+    })
+  },
+
+  updateTask: (taskId, data) => {
+    return $.ajax({
+      type: 'PUT',
+      data: JSON.stringify(data),
+      headers: headers,
+      cache: false,
+      url: apiBaseUrl + '/api/tasks/' + taskId,
       contentType: contentType,
       dataType: 'json'
     })
