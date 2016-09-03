@@ -6,6 +6,9 @@
         <div class="page-desc">The task details.</div>
       </div>
       <div class="task-body">
+        <div class="edit-task">
+          <button @click="edit()" class="button-success pure-button">Edit</button>
+        </div>
         <h4>Title</h4>
         <p>{{ task.title }}</p>
 
@@ -26,6 +29,7 @@
 
 <script>
 import server from '../model'
+import store from '../store'
 
 export default {
   name: 'TaskShow',
@@ -36,6 +40,14 @@ export default {
       host: {}
     }
   },
+
+  methods: {
+    edit () {
+      store.currentTask = this.task
+      this.$router.go('/task/' + this.task.id + '/edit')
+    }
+  },
+
   route: {
     activate () {
       this.task = {}
@@ -52,6 +64,7 @@ export default {
         })
     }
   },
+
   created () {
     console.log('created')
   }
@@ -59,4 +72,8 @@ export default {
 </script>
 
 
-<style></style>
+<style>
+.edit-task {
+  float: right;
+}
+</style>
