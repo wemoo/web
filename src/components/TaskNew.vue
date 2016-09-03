@@ -13,6 +13,14 @@
             <input id="title" v-model="taskTitle" type="text" class="pure-input-1" placeholder="Your task title">
           </div>
           <div class="pure-control-group">
+            <label>Host</label>
+            <select v-model="selectedHost">
+              <option v-for="option in hosts" v-bind:value="option.value">
+                {{ option.name }}
+              </option>
+            </select>
+          </div>
+          <div class="pure-control-group">
             <label for="description">Description</label>
             <input id="description" v-model="taskDesc" type="text" class="pure-input-1" placeholder="Maybe a short description">
           </div>
@@ -37,6 +45,7 @@
 
 <script type="text/javascript">
 import server from '../model'
+import $ from '../lib/zepto'
 
 export default {
   name: 'TaskNew',
@@ -46,7 +55,8 @@ export default {
     return {
       taskTitle: null,
       taskDesc: null,
-      taskScript: null
+      taskScript: null,
+      hosts: []
     }
   },
 
@@ -66,7 +76,8 @@ export default {
       server.createTask({
         'title': this.taskTitle,
         'desc': this.taskDesc,
-        'script': this.taskScript})
+        'script': this.taskScript,
+        'host': this.selectedHost})
         .done((data) => {
           console.log(data.content)
           this.$router.go('/task/index')
@@ -75,6 +86,15 @@ export default {
   },
 
   ready () {
+    server.fetchAllHosts()
+      .done((data) => {
+        $.each(data.content.hosts, (index, item) => {
+          let host = {}
+          host['name'] = item.hostname + ', ' + item.system + ', ' + item.release
+          host['value'] = item.id
+          this.hosts.push(host)
+        })
+      })
     console.log('Load ready.')
   }
 }
