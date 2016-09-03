@@ -12,6 +12,7 @@ import Task from './components/Task.vue'
 import TaskIndex from './components/TaskIndex.vue'
 import TaskNew from './components/TaskNew.vue'
 import TaskShow from './components/TaskShow.vue'
+import TaskEdit from './components/TaskEdit.vue'
 import Log from './components/Log.vue'
 import Monitor from './components/Monitor.vue'
 import Alert from './components/Alert.vue'
@@ -50,6 +51,9 @@ router.map({
       },
       '/:id': {
         component: TaskShow
+      },
+      '/:id/edit': {
+        component: TaskEdit
       }
     }
   },
