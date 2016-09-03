@@ -56,6 +56,7 @@ export default {
       taskTitle: null,
       taskDesc: null,
       taskScript: null,
+      selectedHost: {},
       hosts: []
     }
   },
