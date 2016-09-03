@@ -19,10 +19,7 @@ export default {
     })
   },
 
-  /**
-   * Fetch tasks of this host
-   */
-  fetchTasks: (uuid) => {
+  fetchTaskById: (uuid) => {
     return $.ajax({
       type: 'GET',
       headers: headers,
@@ -41,6 +38,27 @@ export default {
       url: apiBaseUrl + '/api/tasks',
       contentType: contentType,
       dataType: 'json'
+    })
+  },
+
+  fetchAllHosts: () => {
+    return $.ajax({
+      type: 'GET',
+      headers: headers,
+      cache: false,
+      url: apiBaseUrl + '/api/hosts',
+      contentType: contentType,
+      dataType: 'json'
+    })
+  },
+
+  fetchHostById: (hostId) => {
+    return $.ajax({
+      type: 'GET',
+      headers: headers,
+      cache: false,
+      url: apiBaseUrl + '/api/hosts/' + hostId,
+      contentType: contentType
     })
   },
 

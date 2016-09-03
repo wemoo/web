@@ -12,6 +12,9 @@
         <h4>Description</h4>
         <p>{{ task.desc }}</p>
 
+        <h4>Host</h4>
+        <p>{{ host.hostname }}</p>
+
         <h4>Script</h4>
         <pre>{{ task.script }}</pre>
 
@@ -29,7 +32,8 @@ export default {
   data () {
     return {
       taskId: this.$route.params.id,
-      task: {}
+      task: {},
+      host: {}
     }
   },
   route: {
@@ -39,6 +43,12 @@ export default {
       server.fetchTaskById(this.$route.params.id)
         .done((data) => {
           this.task = data.content.task
+
+          // Get host info
+          server.fetchHostById(this.task.host)
+            .done((data) => {
+              this.host = data.content.host
+            })
         })
     }
   },
